@@ -2,7 +2,7 @@
 
 Run a single protractor test (it) or a set of tests (describe).
 
-![Run test](.\images\runTest.PNG)
+![Run test](images/runTest.PNG)
 
 ## Extension Settings
 
