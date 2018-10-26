@@ -37,7 +37,7 @@
         "theme": "dark"
     },
     "license": "MIT",
-    "icon": "icon/run-protractor-icon.png",
+    "icon": "icon.png",
     "main": "./out/extension",
     "scripts": {
         "vscode:prepublish": "npm run compile",
