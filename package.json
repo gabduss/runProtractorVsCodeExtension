@@ -15,7 +15,6 @@
         "onLanguage:javascript"
     ],
     "contributes": {
-        "commands": [],
 		"configuration": {
 			"type": "object",
 			"title": "run-protractor",
@@ -27,8 +26,18 @@
 				}
 			}
 		}
-	},
-	"icon": "./icon/run-protractor-icon.png",
+    },
+    "homepage": "https://github.com/gabduss/runProtractorVsCodeExtension",
+    "repository": {
+		"type": "git",
+		"url": "https://github.com/gabduss/runProtractorVsCodeExtension.git"
+    },
+    "galleryBanner": {
+        "color": "#E23137",
+        "theme": "dark"
+    },
+    "license": "MIT",
+    "icon": "icon/run-protractor-icon.png",
     "main": "./out/extension",
     "scripts": {
         "vscode:prepublish": "npm run compile",
