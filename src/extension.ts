@@ -2,6 +2,8 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 
+const TERMINAL_NAME = 'Run protractor test';
+
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -14,13 +16,14 @@ export function activate(context: vscode.ExtensionContext) {
     const testNameRegex = /(("|')(.*?)("|'))/;
 
     let disposable = vscode.commands.registerCommand('extension.executeProtractorTest', (match) => {
-        let terminal: vscode.Terminal = window.terminals.length > 0 ? window.terminals[0] : window.createTerminal();
+        const existedTerminal = window.terminals.find(term => term.name === TERMINAL_NAME);
+        let terminal: vscode.Terminal = existedTerminal ? existedTerminal : window.createTerminal(TERMINAL_NAME);
         terminal.show();
         const protactorConfigPath = getProtractorConfig();
         const testFile = match.testFile;
         const testName = match.testName;
         terminal.sendText(`cd "${workspace.rootPath}"`);
-        terminal.sendText(`protractor ${protactorConfigPath} --specs='${testFile}' --grep="${testName}"`);  
+        terminal.sendText(`protractor ${protactorConfigPath} --specs="${testFile}" --grep="${testName}"`);  
     });
 
     languages.forEach(language => {
